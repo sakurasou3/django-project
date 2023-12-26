@@ -1,7 +1,7 @@
-<h2>Create Task</h2>
-<a href="{% url 'tasks' %}">back</a>
+<h2>新規タスク</h2>
+<a href="{% url 'tasks' %}">戻る</a>
 
 <form method='post'>{% csrf_token %}
   {{form.as_p}}
-  <input type="submit" value="Create">
+  <input type="submit" value="新規作成">
 </form>

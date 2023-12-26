@@ -1,11 +1,12 @@
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormView
 
 from django.contrib.auth.views import LoginView
-
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 from todoapp.models import Task
 
@@ -61,3 +62,17 @@ class TaskListLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy("tasks")
+
+
+class RegisterTodoApp(FormView):
+    template_name = "todoapp/register.html"
+    form_class = UserCreationForm
+    success_url = reverse_lazy("tasks")
+
+    def form_valid(self, form):
+        # form情報を一時保存しておく
+        user = form.save()
+        if user is not None:
+            # userが作成されれば、ログインを行う
+            login(self.request, user)
+        return super().form_valid(form)

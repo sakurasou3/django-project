@@ -2,24 +2,24 @@
   <p>{{request.user}}</p>
   <form method='post' action='{% url 'logout'%}'>
     {% csrf_token%}
-  <input type="submit" value='logout'>
+  <input type="submit" value='ログアウト'>
 </form>
 {% else %}
-  <a href="{% url 'login' %}">login</a>
+  <a href="{% url 'login' %}">ログイン</a>
 {% endif %}
 
 <h1>Todo List</h1>
-<a href="{% url 'create-task'%}">Add task</a>
+<a href="{% url 'create-task'%}">タスクを追加</a>
 <table>
   <tr>
-    <th>Task</th>
+    <th>タスク</th>
   </tr>
   {% for task in tasks %}
   <tr>
     <td>{{task.title}}</td>
-    <td><a href="{% url 'task' task.id %}">check</a></td>
-    <td><a href="{% url 'edit-task' task.id %}">update</a></td>
-    <td><a href="{% url 'delete-task' task.id %}">delete</a></td>
+    <td><a href="{% url 'task' task.id %}">詳細</a></td>
+    <td><a href="{% url 'edit-task' task.id %}">更新</a></td>
+    <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
   </tr>
   {% endfor %}
 </table>
