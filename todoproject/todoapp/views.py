@@ -19,6 +19,12 @@ class TaskList(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["tasks"] = context["tasks"].filter(user=self.request.user)
+
+        # 検索機能
+        searchInputText = self.request.GET.get("search")
+        if searchInputText is not None:
+            context["tasks"] = context["tasks"].filter(title__icontains=searchInputText)
+            context["search"] = searchInputText
         return context
 
 
