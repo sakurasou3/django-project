@@ -4,8 +4,15 @@
 ```
 . bin/activate
 cd todoproject && python manage.py runserver
-`
+```
 
 ### deatcibate
 ```
-deactibate`
+deactibate
+```
+
+### 参考
+- django公式　　　https://docs.djangoproject.com/en/5.0/
+- Googleフォント　https://fonts.google.com/specimen/M+PLUS+Rounded+1c?subset=japanese
+- Background generator https://cssgradient.io/
+- 絵文字Unicode https://lets-emoji.com/pencil-emoji/
