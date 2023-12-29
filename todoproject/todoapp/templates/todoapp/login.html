@@ -1,9 +1,15 @@
-<h1>ログイン</h1>
-
-<form method='post'>
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="ログイン">
-</form>
-
-<p>アカウントを持っていませんか？</p>
-<a href="{% url 'register' %}">新規登録</a>
+{% extends 'todoapp/base.html' %}
+{% block content %}
+    <div class="header">
+        <h1>ログイン</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <input class="button" type="submit" value="ログイン" />
+    </form>
+    <hr color="#c0c0c0" size="1" />
+    <div class="accountWrapper">
+        <p>アカウントを持っていませんか？</p>
+        <a href="{% url 'register' %}">新規登録</a>
+    </div>
+{% endblock content %}

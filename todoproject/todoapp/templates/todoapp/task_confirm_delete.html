@@ -1,7 +1,11 @@
-<h2>タスク削除</h2>
-<a href="{% url 'tasks' %}">戻る</a>
-
-<form method='post'>{% csrf_token %}
-  <p>{{task}}を本当にタスクを削除しますか？</p>
-  <input type="submit" value="削除">
-</form>
+{% extends 'todoapp/base.html' %}
+{% block content %}
+    <div class="header">
+        <a href="{% url 'tasks' %}">戻る</a>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ task }}を本当にタスクを削除しますか？</p>
+        <input class="button dangerousButton" type="submit" value="削除" />
+    </form>
+{% endblock content %}

@@ -1,10 +1,25 @@
-
-<h1>新規登録</h1>
-
-<form method='post'>
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="新規登録">
-</form>
-
-<p>すでにアカウントを持っていますか？</p>
-<a href="{% url 'login' %}">ログイン</a>
+{% extends 'todoapp/base.html' %}
+{% block content %}
+    <div class="header">
+        <h1>新規登録</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <!-- <label for="">ユーザー名</label> -->
+        <label for="">{{ form.username.label_tag }}</label>
+        {{ form.username }}
+        <!-- <label for="">パスワード</label> -->
+        <label for="">{{ form.password1.label_tag }}</label>
+        {{ form.password1 }}
+        <!-- <label for="">確認用のパスワード</label> -->
+        <label for="">{{ form.password2.label_tag }}</label>
+        {{ form.password2 }}
+        <br />
+        <input class="button registerButton" type="submit" value="新規登録" />
+    </form>
+    <hr color="#c0c0c0" size="1" />
+    <div class="accountWrapper">
+        <p>すでにアカウントを持っていますか？</p>
+        <a href="{% url 'login' %}">ログイン</a>
+    </div>
+{% endblock content %}

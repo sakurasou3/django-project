@@ -1,29 +1,46 @@
-{% if request.user.is_authenticated %}
-  <p>{{request.user}}</p>
-  <form method='post' action='{% url 'logout'%}'>
-    {% csrf_token%}
-  <input type="submit" value='ログアウト'>
-</form>
-{% else %}
-  <a href="{% url 'login' %}">ログイン</a>
-{% endif %}
-
-<h1>Todo List</h1>
-<a href="{% url 'create-task'%}">タスクを追加</a>
-<form method="get">
-  <input type="text" name="search" value={{search}}>
-    <input type="submit" value="検索">
-</form>
-<table>
-  <tr>
-    <th>タスク</th>
-  </tr>
-  {% for task in tasks %}
-  <tr>
-    <td>{{task.title}}</td>
-    <td><a href="{% url 'task' task.id %}">詳細</a></td>
-    <td><a href="{% url 'edit-task' task.id %}">更新</a></td>
-    <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
-  </tr>
-  {% endfor %}
-</table>
+{% extends 'todoapp/base.html' %}
+{% block content %}
+    <div class='header'>
+        <h1>{{ request.user }}のタスク</h1>
+    </div>
+    <div class='searchWrapper'>
+        <form method="get">
+            <input class='searchInput' type="text" name="search" value={{ search }}>
+            <input class='button' type="submit" value="検索">
+        </form>
+        <a href="{% url 'create-task' %}" class='addButton'>+</a>
+    </div>
+    <div class='tasksWrapper'>
+        {% for task in tasks %}
+            <div class='taskWrapper'>
+                <div class="taskTitle">
+                    {% if task.completed %}
+                        <!--タスク完了状態-->
+                        <div class='taskCompletedIcon'></div>
+                        <s><a href={% url 'task' task.id %}>{{ task }}</a></s>
+                    {% else %}
+                        <!--タスク未完了状態-->
+                        <div class='taskInCompletedIcon'></div>
+                        <a href={% url 'task' task.id %}>{{ task }}</a>
+                    {% endif %}
+                </div>
+                <div>
+                    <a href={% url 'edit-task' task.id %} class='editButton'>&#x270f;</a>
+                    <a href={% url 'delete-task' task.id %} class='deleteButton'>×</a>
+                </div>
+            </div>
+        {% empty %}
+            <h3 class='empty'>タスクがありません</h3>
+        {% endfor %}
+    </div>
+    <div class='loginAndLogout'>
+        {% if request.user.is_authenticated %}
+            <form method='post' action='{% url 'logout' %}'>
+                {% csrf_token %}
+                <input type="submit" value='ログアウト'>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">ログイン</a>
+        {% endif %}
+    </div>
+{% endblock content %}

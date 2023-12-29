@@ -1,0 +1,167 @@
+body {
+  background-color: #daedf9;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding-top: 55px;
+}
+
+.todoAppWrapper {
+  max-width: 530px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0px 6px 24px -11px #777777;
+  border-radius: 10px;
+}
+
+a {
+  color: #595959;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+form {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background: rgb(0,212,255);
+  background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(13,47,156,1) 50%, rgba(0,212,255,1) 100%);
+  border-radius: 10px 10px 0 0;
+  color: white;
+}
+.header a {
+  color: white;
+}
+.headerFlex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.taskWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-top: 1px solid #59595955;
+}
+.taskTitle {
+  display: flex;
+  align-items: center;
+}
+.taskCompletedIcon {
+  height: 20px;
+  width: 20px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.taskInCompletedIcon {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #59595955
+}
+.loginAndLogout input {
+  margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  color: lightcoral;
+  font-size: 1rem;
+}
+.editButton {
+  color: green;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.deleteButton {
+  color: coral; 
+  font-size: 1.5rem;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+.searchInput {
+  height: 24px;
+  outline: none;
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
+  padding: 2px 4px;
+  width: 160px !important;
+}
+.button {
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
+  padding: 4px 10px;
+  background-color: #fafafa;
+  color: lightseagreen;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background-color: lightseagreen;
+  color: white;
+}
+
+.dangerousButton {
+  border: 1px solid coral;
+  color: coral;
+}
+
+.dangerousButton:hover {
+  background-color: coral;
+}
+.addButton {
+  font-size: 2rem;
+  color: lightseagreen;
+}
+
+label {
+  display: block;
+}
+
+input[type='text'], textarea {
+  width: 100%
+}
+
+.accountWrapper {
+  padding: 20px;
+}
+
+.accountWrapper p {
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+.accountWrapper a {
+  text-decoration: underline;
+}
+
+.registerButton {
+  margin-top: 10px;
+}
+
+.empty {
+  padding-left: 20px;
+}
+
+.detailWrapper {
+  padding: 20px;
+}
